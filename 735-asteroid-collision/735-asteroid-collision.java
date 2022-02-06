@@ -8,6 +8,7 @@ class Solution {
                 continue;
             }
             while(st.size() != 0 && st.getFirst() > 0 && st.getFirst() < -ele)
+                //not written equal to because then we don't we have to destroy the incoming element or not
                 st.removeFirst();
             if(st.size() != 0 && st.getFirst() == -ele)
                 st.removeFirst();
