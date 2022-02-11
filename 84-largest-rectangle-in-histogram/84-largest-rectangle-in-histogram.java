@@ -1,7 +1,7 @@
 class Solution {
-    public int largestRectangleArea(int[] heights) {
-        int[] nsol = NSOL(heights);
-        int[] nsor = NSOR(heights);
+    public int largestRectangleArea(int[] heights) { //7n
+        int[] nsol = NSOL(heights); //3n
+        int[] nsor = NSOR(heights); //3n
         
         int maxArea = 0;
         for(int i =0; i<heights.length ; i++){
