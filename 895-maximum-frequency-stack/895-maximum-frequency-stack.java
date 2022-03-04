@@ -1,6 +1,6 @@
 class FreqStack {
     
-    private ArrayList<LinkedList<Integer>> freqMap;
+    private ArrayList<ArrayDeque<Integer>> freqMap;
     private HashMap<Integer,Integer> map;
     private int maxFreq = 0;
 
@@ -8,7 +8,7 @@ class FreqStack {
         freqMap = new ArrayList<>();
         map = new HashMap<>();
         
-        freqMap.add(new LinkedList<>());
+        freqMap.add(new ArrayDeque<>());
     }
     
     public void push(int val) {
@@ -16,7 +16,7 @@ class FreqStack {
         maxFreq = Math.max(maxFreq, map.get(val));
         
         if(maxFreq == freqMap.size())
-            freqMap.add(new LinkedList<>());
+            freqMap.add(new ArrayDeque<>());
         
         freqMap.get(map.get(val)).addFirst(val);
     }
