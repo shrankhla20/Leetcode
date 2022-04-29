@@ -4,16 +4,22 @@ class Solution {
         int[][] dp = new int[n][n];
         return lpss(s,0,n-1,dp);
     }
-    public int lpss(String s, int i, int j, int[][] dp){
-        if(i >= j)
-            return dp[i][j] = (i == j ? 1 : 0);
+    public int lpss(String s, int I, int J, int[][] dp){
+        int N = s.length();
+        for(int gap = 0; gap<N;gap++){
+            for(int i =0, j= gap; j<N; i++,j++){
+                if(i >= j){
+                    dp[i][j] = (i == j ? 1 : 0);
+                    continue;
+                }
         
-        if(dp[i][j] != 0)
-            return dp[i][j];
         
-        if(s.charAt(i) == s.charAt(j))
-            return dp[i][j] = lpss(s,i+1,j-1,dp) + 2;
-        else
-            return dp[i][j] = Math.max(lpss(s,i+1,j,dp),lpss(s,i,j-1,dp));
+                if(s.charAt(i) == s.charAt(j))
+                    dp[i][j] = dp[i+1][j-1] + 2;
+                else
+                    dp[i][j] = Math.max(dp[i+1][j],dp[i][j-1]);
+            }
+        }
+        return dp[I][J];
     }
 }
