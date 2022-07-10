@@ -9,10 +9,6 @@ class Solution {
             if(!map.containsKey(keyStr))map.put(keyStr,new ArrayList<>());
             map.get(keyStr).add(str);
         }
-        List<List<String>> ans = new ArrayList<>();
-        for(String s : map.keySet()){
-            ans.add(map.get(s));
-        }
-        return ans;
+        return new ArrayList<>(map.values());
     }
 }
